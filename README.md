@@ -88,7 +88,7 @@ import XCTAssertUnrecoverable
 class ExampleTests: XCTestCase {
     func testExample() {
         XCTAssertUnrecoverable {
-            // some program that will be crash.
+            // some program that will crash.
         }
     }
 }
