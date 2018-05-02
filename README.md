@@ -1,5 +1,7 @@
 # XCTAssertUnrecoverable
 
+<img src="Assets/image.png" />
+
 ## Installation
 
 `XCTAssertUnrecoverable` depends on [johnno1962/Fortify](https://github.com/johnno1962/Fortify), but it is included in this library directly to support CocoaPods, Carthage for now.
