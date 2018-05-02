@@ -13,7 +13,7 @@ let package = Package(
     targets: [
         .target(
             name: "XCTAssertUnrecoverable",
-            dependencies: []),
+            path: "Sources"),
         .testTarget(
             name: "XCTAssertUnrecoverableTests",
             dependencies: ["XCTAssertUnrecoverable"]),
