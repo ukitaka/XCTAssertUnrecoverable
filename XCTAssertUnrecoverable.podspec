@@ -3,7 +3,21 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "Make it possible to test that universal error / logic failure occurs"
   s.description  = <<-DESC
-    Your description here.
+  This library makes it possible to test that universal error / logic failure occurs, even if you use `fatalError`, `preconditionFailure` and so on.
+  This library provides just one function `XCTAssertUnrecoverable`.
+
+  ```swift
+  import XCTest
+  import XCTAssertUnrecoverable
+
+  class ExampleTests: XCTestCase {
+      func testExample() {
+          XCTAssertUnrecoverable {
+              // some program that will be crash.
+          }
+      }
+  }
+  ```
   DESC
   s.homepage     = "git@github.com:ukitaka/XCTAssertUnrecoverable.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
