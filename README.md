@@ -60,6 +60,28 @@ let package = Package(
 $ swift build
 ```
 
+## Usage
+
+**Important: Please disable debugger.**
+
+<img src="Assets/disable-lldb.png" />
+
+`lldb` traps some signals such as `SIGILL`, `SIGABRT` so you **cannot** use this library with debugger.
+
+This library provides just one function `XCTAssertUnrecoverable`.
+
+```swift
+import XCTest
+import XCTAssertUnrecoverable
+
+class ExampleTests: XCTestCase {
+    func testExample() {
+        XCTAssertUnrecoverable {
+            // some program that will be crash.
+        }
+    }
+}
+```
 
 ## Requirements
 
