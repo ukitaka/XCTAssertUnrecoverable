@@ -9,7 +9,7 @@
 import XCTest
 import Foundation
 
-public func XCTAssertUnrecoverable<T>(file: StaticString = #file, line: UInt = #line, _ block: @autoclosure () throws -> T) {
+public func XCTAssertUnrecoverable<T>(file: StaticString = #file, line: UInt = #line, block: () throws -> T) {
     do {
         let result = try Fortify.exec(block: block)
         XCTFail("Unrecoverable error did not occur. returned: \(result)", file: file, line: line)
@@ -22,4 +22,7 @@ public func XCTAssertUnrecoverable<T>(file: StaticString = #file, line: UInt = #
             XCTFail("Unexpected recoverable error occurred: \(error.localizedDescription)", file: file, line: line)
         }
     }
+}
+public func XCTAssertUnrecoverable<T>(file: StaticString = #file, line: UInt = #line, _ value: @autoclosure () throws -> T) {
+    XCTAssertUnrecoverable(file: file, line: line, block: value)
 }

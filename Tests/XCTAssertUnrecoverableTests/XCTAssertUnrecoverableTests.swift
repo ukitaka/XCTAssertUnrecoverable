@@ -14,6 +14,7 @@ class XCTAssertUnrecoverableTests: XCTestCase {
 
     func testFatalError() {
         XCTAssertUnrecoverable(fatalError())
+        XCTAssertUnrecoverable { fatalError() }
         XCTAssertUnrecoverable(fatalError("fatal error occurred."))
     }
     
