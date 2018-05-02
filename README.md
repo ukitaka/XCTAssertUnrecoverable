@@ -68,6 +68,17 @@ $ swift build
 
 `lldb` traps some signals such as `SIGILL`, `SIGABRT` so you **cannot** use this library with debugger.
 
+**Important: Be careful with build configuration, and optimization level.**
+
+For instance, `assert` works only in `-Onone` builds.  
+So it may not crash in other optimization level.
+
+| | -Onone | -O | -Osize | -Ounchecked |
+|---|---|---|---|---|
+| fatalError | ✅ | ✅ | ✅ | ✅ |
+| precondition | ✅ | ✅ | ✅ | ❌ |
+| assert | ✅ | ❌ | ❌ | ❌ |
+
 This library provides just one function `XCTAssertUnrecoverable`.
 
 ```swift
