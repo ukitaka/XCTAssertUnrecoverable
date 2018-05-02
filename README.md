@@ -6,8 +6,13 @@
 
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-```
-pod 'XCTAssertUnrecoverable'
+```ruby
+# Podfile
+use_frameworks!
+
+target 'YOUR_TESTING_TARGET' do
+    pod 'XCTAssertUnrecoverable', '~> 1.0'
+end
 ```
 
 ```bash
@@ -15,6 +20,8 @@ $ pod install
 ```
 
 ### [Carthage](https://github.com/Carthage/Carthage)
+
+Add this to `Cartfile.private`.
 
 ```
 github "ukitaka/XCTAssertUnrecoverable"
@@ -50,4 +57,4 @@ $ swift build
 
 ## Requirements
 
-swift 4.1
+Swift 4.1
