@@ -6,6 +6,8 @@ This library makes it possible to test that universal error / logic failure occu
 
 <img src="Assets/image.png" />
 
+<img src="Assets/fail.png" />
+
 ## Installation
 
 `XCTAssertUnrecoverable` depends on [johnno1962/Fortify](https://github.com/johnno1962/Fortify), but it is included in this library directly to support CocoaPods, Carthage for now.
