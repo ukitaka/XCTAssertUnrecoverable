@@ -64,7 +64,22 @@ $ swift build
 
 ## Usage
 
-**Important: Please disable debugger.**
+Only one function `XCTAssertUnrecoverable` is provided.
+
+```swift
+import XCTest
+import XCTAssertUnrecoverable
+
+class ExampleTests: XCTestCase {
+    func testExample() {
+        XCTAssertUnrecoverable {
+            // some program that will crash.
+        }
+    }
+}
+```
+
+**Important: Please disable a debugger.**
 
 <img src="Assets/disable-lldb.png" />
 
@@ -81,17 +96,13 @@ So it may not crash in other optimization level.
 | precondition | ✅ | ✅ | ✅ | ❌ |
 | assert | ✅ | ❌ | ❌ | ❌ |
 
-This library provides just one function `XCTAssertUnrecoverable`.
+**Note: Multithreading is not supported yet.**
 
 ```swift
-import XCTest
-import XCTAssertUnrecoverable
-
-class ExampleTests: XCTestCase {
-    func testExample() {
-        XCTAssertUnrecoverable {
-            // some program that will crash.
-        }
+// NG
+XCTAssertUnrecoverable {
+    DispatchQueue.global().async {
+        fatalError("fatal error!")
     }
 }
 ```

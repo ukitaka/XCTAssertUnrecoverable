@@ -35,7 +35,15 @@ class XCTAssertUnrecoverableTests: XCTestCase {
             let i: Int? = nil
             let _ = i!
         }
+        
+        XCTAssertUnrecoverable {
+            DispatchQueue.global().async {
+                fatalError("fatal error!")
+            }
+        }
     }
+    
+    
     
     func testFatalError() {
         XCTAssertUnrecoverable(fatalError())
