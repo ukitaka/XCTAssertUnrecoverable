@@ -11,7 +11,32 @@ import XCTest
 import XCTAssertUnrecoverable
 
 class XCTAssertUnrecoverableTests: XCTestCase {
+    struct ThrownError: Error { }
+    
+    func throwError() throws {
+        throw ThrownError()
+    }
+    
+    func testUnrecoverableErrors() {
+        // fatalError
+        XCTAssertUnrecoverable(fatalError("fatal error occurred."))
 
+        // assert / assertionFailure
+        XCTAssertUnrecoverable(assertionFailure("assertion failure."))
+
+        // precondition / preconditionFailure
+        XCTAssertUnrecoverable(preconditionFailure("precondition failure."))
+
+        // force try
+        XCTAssertUnrecoverable(try! throwError())
+
+        // force unwrap
+        XCTAssertUnrecoverable {
+            let i: Int? = nil
+            let _ = i!
+        }
+    }
+    
     func testFatalError() {
         XCTAssertUnrecoverable(fatalError())
         XCTAssertUnrecoverable { fatalError() }
@@ -34,12 +59,6 @@ class XCTAssertUnrecoverableTests: XCTestCase {
     }
     
     func testForceTry() {
-        struct ThrownError: Error { }
-        
-        func throwError() throws {
-            throw ThrownError()
-        }
-        
         XCTAssertUnrecoverable(try! throwError())
     }
     
