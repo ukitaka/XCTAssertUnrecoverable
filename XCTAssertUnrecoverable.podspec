@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   }
   ```
   DESC
-  s.homepage     = "git@github.com:ukitaka/XCTAssertUnrecoverable.git"
+  s.homepage     = "https://github.com/ukitaka/XCTAssertUnrecoverable.git"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "ukitaka" => "yuki.takahashi.1126@gmail.com" }
   s.social_media_url   = ""
