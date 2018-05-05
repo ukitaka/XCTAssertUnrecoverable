@@ -1,3 +1,0 @@
-[submodule "Dependencies/Fortify"]
-	path = Dependencies/Fortify
-	url = git@github.com:johnno1962/Fortify.git
