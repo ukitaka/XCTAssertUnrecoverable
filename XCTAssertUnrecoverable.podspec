@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.9"
   s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/ukitaka/XCTAssertUnrecoverable.git", :tag => s.version.to_s }
-  s.source_files  = "Sources/**/*"
+  s.source_files  =[ "Sources/XCTAssertUnrecoverable.swift", "Dependencies/Fortify/Sources/Fortify.swift"]
   s.frameworks  = "XCTest"
 end
