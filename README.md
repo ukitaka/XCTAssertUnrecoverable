@@ -107,13 +107,6 @@ XCTAssertUnrecoverable {
 }
 ```
 
-## Development
-
-```
-$ git submodule init --update --recursive
-$ open XCTAssertUnrecoverable.xcodeproj
-```
-
 ## Requirements
 
 Swift 4.1
