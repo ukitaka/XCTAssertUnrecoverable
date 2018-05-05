@@ -17,34 +17,6 @@ class XCTAssertUnrecoverableTests: XCTestCase {
         throw ThrownError()
     }
     
-    func testUnrecoverableErrors() {
-        // fatalError
-        XCTAssertUnrecoverable(fatalError("fatal error occurred."))
-
-        // assert / assertionFailure
-        XCTAssertUnrecoverable(assertionFailure("assertion failure."))
-
-        // precondition / preconditionFailure
-        XCTAssertUnrecoverable(preconditionFailure("precondition failure."))
-
-        // force try
-        XCTAssertUnrecoverable(try! throwError())
-
-        // force unwrap
-        XCTAssertUnrecoverable {
-            let i: Int? = nil
-            let _ = i!
-        }
-        
-        XCTAssertUnrecoverable {
-            DispatchQueue.global().async {
-                fatalError("fatal error!")
-            }
-        }
-    }
-    
-    
-    
     func testFatalError() {
         XCTAssertUnrecoverable(fatalError())
         XCTAssertUnrecoverable { fatalError() }
